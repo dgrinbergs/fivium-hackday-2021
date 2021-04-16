@@ -2,45 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Websocket Prototype</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websocket Prototype</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 </head>
 
 <body>
-    <div id="app" class="p-4">
-        <div class="flex flex-col space-y-4">
-            <h1 class="text-2xl font-light">Websocket Prototype {{ socket.connected ? ':)' : ':(' }}</h1>
-            <div class="flex flex-row items-center w-min rounded-full py-2 px-3 bg-white border-2"
-                :class="registered ? 'border-green-500' : 'border-black'">
-                <input type="text" v-model="name" placeholder="Ken" :disabled="registered" class="w-48 outline-none"
-                    :class="{ 'opacity-75' : registered }">
-                <button @click.prevent="connect()" v-if="!registered" title="Connect"><i
-                        class="fas fa-arrow-right"></i></button>
-                <button @click.prevent="disconnect()" v-if="registered" title="Disconnect"><i
-                        class="fas fa-times"></i></button>
-            </div>
-            <div class="flex flex-col space-y-4 my-2">
-                <p v-for="error in errors" class="text-red-500">{{ error }}</p>
-            </div>
-        </div>
-        <div>
-            <h2 class="text-lg">Members {{ members.length > 0 ? `(${members.length})` : ''}}</h2>
-            <ul>
-                <li v-for="member in members">{{ member }}</li>
-            </ul>
-        </div>
-        <div>
-            <h2 class="text-lg">Popular places near me</h2>
-            <h3 class="text-sm">{{`${location.location}, ${location.radius}`}}</h3>
-        </div>
+  <div id="app" class="p-4">
+    <div class="flex flex-col space-y-4">
+      <h1 class="text-2xl font-light">Websocket Prototype {{ socket.connected ? ':)' : ':(' }}</h1>
+      <div class="flex flex-row items-center w-min rounded-full py-2 px-3 bg-white border-2"
+        :class="registered ? 'border-green-500' : 'border-black'">
+        <input type="text" v-model="name" placeholder="Ken" :disabled="registered" class="w-48 outline-none"
+          :class="{ 'opacity-75' : registered }">
+        <button @click.prevent="connect()" v-if="!registered" title="Connect"><i
+            class="fas fa-arrow-right"></i></button>
+        <button @click.prevent="disconnect()" v-if="registered" title="Disconnect"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col space-y-4 my-2">
+        <p v-for="error in errors" class="text-red-500">{{ error }}</p>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="prototype.js"></script>
+    <div>
+      <h2 class="text-lg">Members {{ members.length > 0 ? `(${members.length})` : ''}}</h2>
+      <ul>
+        <li v-for="member in members">{{ member }}</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg">Popular places near me</h2>
+      <h3 class="text-sm" v-if="location">{{ `${location.name}, ${location.radius}` }}</h3>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="prototype.js"></script>
 </body>
 
 </html>

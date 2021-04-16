@@ -1,4 +1,66 @@
 {
-    "location": "15 Adam Street",
-    "radius": "1km"
+  "name": "15 Adam Street",
+  "radius": "1km",
+  "locations": [
+    {
+      "name": "Ippudo",
+      "category": "Japanese",
+      "rating": {
+        "stars": 4.5,
+        "votes": 638
+      },
+      "price": 2,
+      "distance": "5 mins"
+    },
+    {
+      "name": "Honest Burgers Covent Garden",
+      "category": "Burgers",
+      "rating": {
+        "stars": 4.4,
+        "votes": 2017
+      },
+      "price": 2,
+      "distance": "2 mins"
+    },
+    {
+      "name": "Itsu",
+      "category": "Health Food",
+      "rating": {
+        "stars": 4.1,
+        "votes": 102
+      },
+      "price": 2,
+      "distance": "2 mins"
+    },
+    {
+      "name": "Byron",
+      "category": "Burgers",
+      "rating": {
+        "stars": 4.2,
+        "votes": 1352
+      },
+      "price": 2,
+      "distance": "7 mins"
+    },
+    {
+      "name": "Pizza Hut",
+      "category": "Pizza",
+      "rating": {
+        "stars": 4,
+        "votes": 2327
+      },
+      "price": 2,
+      "distance": "3 mins"
+    },
+    {
+      "name": "Pret a Manger",
+      "category": "Sandwich",
+      "rating": {
+        "stars": 4.1,
+        "votes": 101
+      },
+      "price": 2,
+      "distance": "7 mins"
+    }
+  ]
 }

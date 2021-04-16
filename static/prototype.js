@@ -9,7 +9,6 @@ let Vue = new window.Vue({
       .then(r => r.json())
       .then(data => {
         this.location = data
-        console.log(data);
       });
   },
   data: function() {
