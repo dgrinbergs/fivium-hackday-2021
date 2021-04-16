@@ -57,6 +57,10 @@ let Vue = new window.Vue({
         if(user.locations.includes(id)) names.push(user.name)
       }
       return names;
+    },
+
+    getTotalUsersInLocation: function (id) {
+      return this.getNamesForLocation(id).length
     }
   },
   mounted: function () {

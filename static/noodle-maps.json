@@ -5,6 +5,7 @@
     {
       "id": 1,
       "name": "Ippudo",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d7158892-Reviews-Ippudo_Ramen-London_England.html",
       "icon": "🍣",
       "category": "Japanese",
       "rating": {
@@ -16,7 +17,8 @@
     },
     {
       "id": 2,
-      "name": "Honest Burgers Covent Garden",
+      "name": "Honest Burger Covent Garden",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d9752531-Reviews-Honest_Burgers_Covent_Garden-London_England.html",
       "icon": "🍔",
       "category": "Burgers",
       "rating": {
@@ -29,8 +31,9 @@
     {
       "id": 3,
       "name": "Itsu",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d2005321-Reviews-Itsu-London_England.html",
       "icon": "🥗",
-      "category": "Health Food",
+      "category": "Healthy Food",
       "rating": {
         "stars": 4.1,
         "votes": 102
@@ -41,6 +44,7 @@
     {
       "id": 4,
       "name": "Byron",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d6979735-Reviews-Byron_Strand-London_England.html",
       "icon": "🍔",
       "category": "Burgers",
       "rating": {
@@ -53,6 +57,7 @@
     {
       "id": 5,
       "name": "Pizza Hut",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d5243160-Reviews-Pizza_Hut-London_England.html",
       "icon": "🍕",
       "category": "Pizza",
       "rating": {
@@ -65,6 +70,7 @@
     {
       "id": 6,
       "name": "Pret a Manger",
+      "reviews": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d8782593-Reviews-Pret_A_Manger_421_Strand-London_England.html",
       "icon": "🥪",
       "category": "Sandwich",
       "rating": {
