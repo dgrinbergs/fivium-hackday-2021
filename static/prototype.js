@@ -9,49 +9,71 @@ let Vue = new window.Vue({
       .then(r => r.json())
       .then(data => {
         this.location = data
-      });
+      })
   },
-  data: function() {
+  data: function () {
     return {
-      errors: [],
-      socket: null,
-      registered: false,
-      name: "",
-      members: [],
-      location: {}
+      errors: [], //errors when validating etc
+      socket: null, //the socket between the client and the server
+      registered: false, //whether the user has provided a name
+      users: [], //other users connected and their selections
+      userData: {
+        name: "", // this users name
+        locations: [] //the locations the user has selected
+      },
+      location: {} //the location of the office and nearby places provided from the noodle maps 'api'
     }
   },
   methods: {
-    connect: function () {
+    register: function () {
       this.errors = []
-      if (this.name.length < 3) {
-        console.log(this.name.length > 2)
+      if (this.userData.name.length < 3) {
+        console.log(this.userData.name.length > 2)
         this.errors.push("Please enter your name")
         return
       }
 
-      this.socket.emit('register', this.name)
-      this.registered = true;
+      this.socket.emit('register', this.userData)
+      this.registered = true
     },
-    disconnect: function() {
+
+    unregister: function () {
       this.socket.emit('unregister')
-      this.registered = false;
+      this.registered = false
     },
-    myFunction: function () {
-      console.log('can access data outside of mounted')
+
+    toggleGroup: function (id) {
+      if (!this.userData.locations.includes(id)) {
+        this.userData.locations.push(id)
+      } else {
+        this.userData.locations.splice(this.userData.locations.indexOf(id), 1)
+      }
+      this.socket.emit('user-update', this.userData)
     },
+
+    getNamesForLocation: function (id) {
+      let names = []
+      for (let user of this.users) {
+        if(user.locations.includes(id)) names.push(user.name)
+      }
+      return names;
+    }
   },
-  mounted: function() {
-    this.socket.on('register', name => {
-      this.members.push(name)
+  mounted: function () {
+    this.socket.on('register', users => {
+      this.users = users
     })
 
-    this.socket.on('unregister', name => {
-      this.members.splice(this.members.indexOf(name), 1)
+    this.socket.on('unregister', users => {
+      this.users = users
     })
 
-    this.socket.on('members', members => {
-      this.members = members;
+    this.socket.on('users', users => {
+      this.users = users
+    })
+
+    this.socket.on('user-update', users => {
+      this.users = users
     })
   }
 });

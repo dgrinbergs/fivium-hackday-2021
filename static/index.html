@@ -17,25 +17,46 @@
       <h1 class="text-2xl font-light">Websocket Prototype {{ socket.connected ? ':)' : ':(' }}</h1>
       <div class="flex flex-row items-center w-min rounded-full py-2 px-3 bg-white border-2"
         :class="registered ? 'border-green-500' : 'border-black'">
-        <input type="text" v-model="name" placeholder="Ken" :disabled="registered" class="w-48 outline-none"
+        <input type="text" v-model="userData.name" placeholder="Ken" :disabled="registered" class="w-48 outline-none"
           :class="{ 'opacity-75' : registered }">
-        <button @click.prevent="connect()" v-if="!registered" title="Connect"><i
+        <button @click.prevent="register()" v-if="!registered" title="Register"><i
             class="fas fa-arrow-right"></i></button>
-        <button @click.prevent="disconnect()" v-if="registered" title="Disconnect"><i class="fas fa-times"></i></button>
+        <button @click.prevent="unregister()" v-if="registered" title="Unregister"><i class="fas fa-times"></i></button>
       </div>
       <div class="flex flex-col space-y-4 my-2">
         <p v-for="error in errors" class="text-red-500">{{ error }}</p>
       </div>
     </div>
-    <div>
+    <!-- <div>
       <h2 class="text-lg">Members {{ members.length > 0 ? `(${members.length})` : ''}}</h2>
       <ul>
         <li v-for="member in members">{{ member }}</li>
       </ul>
-    </div>
+    </div> -->
     <div>
-      <h2 class="text-lg">Popular places near me</h2>
+      <h2 class="text-lg">Popular locations from Noodle Maps</h2>
       <h3 class="text-sm" v-if="location">{{ `${location.name}, ${location.radius}` }}</h3>
+      <ul class="flex flex-col space-y-6">
+        <li v-for="location in location.locations">
+          <div class="flex flex-col space-y-0.5">
+            <div class="flex flex-row space-x-2 items-center">
+              <p>{{ location.name }}</p>
+              <p>-</p>
+              <p>{{ location.rating.stars}} <i class="fas fa-star text-yellow-300"></i></p>
+              <button @click.prevent="toggleGroup(location.id)" class="rounded-full py-2 px-3 bg-white border-2"
+                v-if="registered">
+                {{ !userData.locations.includes(location.id) ? 'Join' : 'Leave'}}
+              </button>
+            </div>
+            <div>
+              <p class="text-sm">{{ `(${location.icon} ${location.category})` }}</p>
+              <ul>
+                <li v-for="name in getNamesForLocation(location.id)">{{ name }}</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>

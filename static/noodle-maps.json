@@ -3,7 +3,9 @@
   "radius": "1km",
   "locations": [
     {
+      "id": 1,
       "name": "Ippudo",
+      "icon": "🍣",
       "category": "Japanese",
       "rating": {
         "stars": 4.5,
@@ -13,7 +15,9 @@
       "distance": "5 mins"
     },
     {
+      "id": 2,
       "name": "Honest Burgers Covent Garden",
+      "icon": "🍔",
       "category": "Burgers",
       "rating": {
         "stars": 4.4,
@@ -23,7 +27,9 @@
       "distance": "2 mins"
     },
     {
+      "id": 3,
       "name": "Itsu",
+      "icon": "🥗",
       "category": "Health Food",
       "rating": {
         "stars": 4.1,
@@ -33,7 +39,9 @@
       "distance": "2 mins"
     },
     {
+      "id": 4,
       "name": "Byron",
+      "icon": "🍔",
       "category": "Burgers",
       "rating": {
         "stars": 4.2,
@@ -43,7 +51,9 @@
       "distance": "7 mins"
     },
     {
+      "id": 5,
       "name": "Pizza Hut",
+      "icon": "🍕",
       "category": "Pizza",
       "rating": {
         "stars": 4,
@@ -53,7 +63,9 @@
       "distance": "3 mins"
     },
     {
+      "id": 6,
       "name": "Pret a Manger",
+      "icon": "🥪",
       "category": "Sandwich",
       "rating": {
         "stars": 4.1,
