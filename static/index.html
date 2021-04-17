@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eCaase</title>
+  <title>What's for lunch?</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
@@ -16,8 +16,8 @@
   <div id="app" class="flex flex-col p-4 space-y-4">
     <div class="flex flex-col space-y-4">
       <div>
-        <h1 class="text-4xl font-baseline">{{ socket.connected ? 'eCaase' : '' }}</h1>
-        <p class="text-xl">electronic Calories as a service experiment</p>
+        <h1 class="text-4xl font-baseline">{{ socket.connected ? 'What\'s for lunch?' : '' }}</h1>
+        <p class="text-xl">For all your lunchtime needs</p>
       </div>
       <div class="flex flex-col space-y-4 my-2" v-if="errors.length">
         <p v-for="error in errors" class="text-red-500">{{ error }}</p>
@@ -74,7 +74,6 @@
           {{ !userData.locations.includes(location.id) ? 'Join' : 'Leave'}}
         </button>
         </div>
-        
 
       </div>
     </div>
